@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'news_app',
 ]
+NEWS_API_KEY = '7c9628099fbd4d63be8c502113ad9ec7'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

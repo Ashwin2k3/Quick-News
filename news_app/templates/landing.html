@@ -1,0 +1,93 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Country and Category</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Select Your News</h1>
+    <form action="{% url 'category_selection' %}" method="GET">
+        <div class="form-group">
+            <label for="country">Select Country:</label>
+            <select class="form-control" id="country" name="country">
+                <option value="in">India</option>
+                <option value="us">United States</option>
+                <option value="gb">United Kingdom</option>
+                <option value="au">Australia</option>
+                <!-- Add more countries as needed -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Select Category:</label>
+            <select class="form-control" id="category" name="category">
+                <option value="technology">Technology</option>
+                <option value="politics">Politics</option>
+                <option value="geopolitics">Geopolitics</option>
+                <option value="health">Health</option>
+                <option value="sports">Sports</option>
+                <option value="business">Business</option>
+                <option value="entertainment">Entertainment</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Get News</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Navigation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">NewsApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_selection' %}?country=in&category=technology">Tech News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_selection' %}?country=in&category=politics">Politics News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_selection' %}?country=in&category=health">Health News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_selection' %}?country=in&category=sports">Sports News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_selection' %}?country=in&category=business">Business News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_selection' %}?country=in&category=entertainment">Entertainment News</a>
+            </li>
+            <!-- Add more categories as needed -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container my-4">
+    <h1>Select Your News</h1>
+    <p>Choose a category from the navigation bar to view the latest news.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

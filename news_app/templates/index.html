@@ -1,0 +1,119 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Latest News</h1>
+    <div class="btn-group mb-4">
+        {% for category in categories %}
+        <a href="{% url 'category_news' category %}" class="btn btn-secondary">
+            {{ category|title }}
+        </a>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html> {% endcomment %}
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Latest News</h1>
+    <div class="btn-group mb-4">
+        <a href="{% url 'indian_news' %}" class="btn btn-secondary">Indian News</a>
+        <a href="{% url 'world_news' %}" class="btn btn-secondary">World News</a>
+        {% for category in categories %}
+        <a href="{% url 'category_news' category %}" class="btn btn-secondary">
+            {{ category|title }}
+        </a>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Latest News</h1>
+
+    <!-- Button Group for Categories, Indian News, and World News -->
+    <div class="btn-group mb-4" role="group" aria-label="News Categories">
+        <a href="{% url 'indian_news' %}" class="btn btn-primary">Indian News</a>
+        <a href="{% url 'world_news' %}" class="btn btn-primary">World News</a>
+        <a href="{% url 'indian_news' %}" class="btn btn-secondary">Only Indian News</a>
+        {% for category in categories %}
+        <a href="{% url 'category_news' category %}" class="btn btn-secondary">
+            {{ category|title }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- News Articles Section -->
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
